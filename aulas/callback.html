@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+    <title> Callback </title>
+    <script>
+        function exibirArtigo(id, callbackSucesso, callbackErro){
+            if(id){
+                callbackSucesso('Função de Callback em JS', 'Função de Callback funcionando bem');
+            }else{
+                callbackErro('Erro ao recuperar os dados');
+            }
+
+        }
+
+        let callbackSucesso = function(titulo, descricao){
+            document.write(`
+            <h1>${titulo}</h1>            
+            <hr/>
+            <p>${descricao}</p>
+            `);
+
+        }
+        let callbackErro = function(erro){
+            document.write(`
+            <p>${erro}</p>
+            `);
+        }
+
+
+        exibirArtigo(0,callbackSucesso, callbackErro)
+
+    </script>
+</html>
