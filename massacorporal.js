@@ -38,7 +38,8 @@ let nome = prompt('Nome');
 let altura = parseFloat(prompt('Altura (cm)'))/100;
 let peso = parseFloat(prompt('Peso (kg)'));
 
-let M = peso/(altura**2);
+let M = (peso/(altura**2)).toFixed(2);
 let faixa = IMC(M);
 
-document.write(`${nome} com ${altura} m e ${peso} kg, você está na faixa "${faixa}"`);
+document.write(`${nome} possui índice de massa corporal igual a ${M}, sendo classificado como:
+${faixa}`);
