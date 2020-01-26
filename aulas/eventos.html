@@ -10,19 +10,19 @@
         </script>
     </head>
     <body class="p-2">
-        <div class='bg-primary h-25 w-100 p-2 mb-5 text-light'>
+        <div onclick='console.log("onclick")' class='bg-primary h-25 w-100 p-2 mb-5 text-light'>
             Mouse Click
         </div>
-        <div class='bg-danger h-25 w-100 p-2 mb-5 text-light'>
+        <div ondblclick='console.log("on double click")'class='bg-danger h-25 w-100 p-2 mb-5 text-light'>
             Mouse Double Click
         </div>
-        <div class='bg-success h-25 w-100 p-2 mb-5 text-light'>
+        <div onmouseup='console.log("on mouse up")'class='bg-success h-25 w-100 p-2 mb-5 text-light'>
             Mouse Up
         </div>
-        <div class='bg-warning h-25 w-100 p-2 mb-5 text-light'>
+        <div onmouseover='console.log("on mouse over")' class='bg-warning h-25 w-100 p-2 mb-5 text-light'>
             Mouse Over
         </div>
-        <div class='bg-dark h-25 w-100 p-2 mb-5 text-light'>
+        <div onmouseout='console.log("on mouse out")' class='bg-dark h-25 w-100 p-2 mb-5 text-light'>
             Mouse Out
         </div>
     </body>
