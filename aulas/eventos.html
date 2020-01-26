@@ -9,20 +9,20 @@
 
         </script>
     </head>
-    <body class="p-2" onresize="console.log('')" onscroll="console.log('onscroll')">
-        <div onclick='console.log("onclick")' class='bg-primary h-25 w-100 p-2 mb-5 text-light'>
+    <body class="p-2" onresize="console.log('onresize')" onscroll="console.log('onscroll')">
+        <div onclick='alert("onclick")' class='bg-primary h-25 w-25 p-2 mb-5 text-light'>
             Mouse Click
         </div>
-        <div ondblclick='console.log("on double click")'class='bg-danger h-25 w-100 p-2 mb-5 text-light'>
+        <div ondblclick='alert("on double click")'class='bg-danger h-25 w-25 p-2 mb-5 text-light'>
             Mouse Double Click
         </div>
-        <div onmouseup='console.log("on mouse up")'class='bg-success h-25 w-100 p-2 mb-5 text-light'>
+        <div onmouseup='alert("on mouse up")'class='bg-success h-25 w-25 p-2 mb-5 text-light'>
             Mouse Up
         </div>
-        <div onmouseover='console.log("on mouse over")' class='bg-warning h-25 w-100 p-2 mb-5 text-light'>
+        <div onmouseover='alert("on mouse over")' class='bg-warning h-25 w-25 p-2 mb-5 text-light'>
             Mouse Over
         </div>
-        <div onmouseout='console.log("on mouse out")' class='bg-dark h-25 w-100 p-2 mb-5 text-light'>
+        <div onmouseout='alert("on mouse out")' class='bg-dark h-25 w-25 p-2 mb-5 text-light'>
             Mouse Out
         </div>
 
@@ -30,6 +30,16 @@
         <input onkeydown="alert('onkeydown')" type="text" class="form-control mt-3" placeholder="onkeydown"/>
         <input onkeyup="alert('onkeyup')" type="text" class="form-control mt-3" placeholder="onkeyup"/>
         <input onkeypress="alert('onkeypress')" type="text" class="form-control mt-3" placeholder="onkeypress"/>
+
+        <hr/>
+
+        <input onfocus="console.log('on focus')" type="text" class="form-control mt-3" placeholder="onfocus"/>
+        <input onblur="console.log('on blur')" type="text" class="form-control mt-3" placeholder="onblur"/>
+        <select onchange="alert('on change')" class="form-group mt-3">
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select>
+
 
 
     </body>
