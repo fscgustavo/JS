@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title> Date  </title>
+        <script>
+
+            let data = new Date();
+
+            document.write(`${data.getDate()}/${data.getMonth()+1}/${data.getFullYear()} <hr>`);
+            
+            document.write(`
+            +1 dia
+            ${data.setDate(data.getDate()+1)}
+            <p>${data.toString()}</p>
+            <hr>
+            -1 mês
+            ${data.setMonth(data.getMonth()-1)}
+            <p>${data.toString()}</p>
+            <hr>
+            -10 anos
+            ${data.setFullYear(data.getFullYear()-10)}
+            <p>${data.toString()}</p>
+            <br><br><br>
+            <hr>
+            `)
+
+
+            let data1 = new Date();
+            let data2 = new Date(2020,0,20);
+
+            document.write('<h1> Diferença entre datas </h1>')
+            document.write(data1);
+            document.write(data2);
+            document.write('<hr>')
+            document.write(data1.getTime()+'<br>')
+            document.write(data2.getTime()+'<br>')
+            
+            let diferenca = Math.abs(data1.getTime() - data2.getTime())
+            diferenca = Math.floor(diferenca/(1*24*60*60*1000))
+
+            document.write(`A diferença entre datas é igual a ${diferenca}`)
+
+
+
+
+
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
