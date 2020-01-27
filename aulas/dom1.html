@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title> DOM  </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body class="p-5">
+        <input type="text" class="form-group" onkeyup="distribuiCaracter()" id = "entrada"/>
+        <hr>
+        <p>Letras:</p>
+        <input type="text" class="form-group" id="letras" disabled/>
+        <p>Números:</p>
+        <input type="text" class="form-group" id="numeros" disabled/>
+    </body>
+    <script>
+        function distribuiCaracter(){
+            let caracter= document.getElementById('entrada').value
+            document.getElementById("entrada").value = ""
+            
+            switch(caracter){
+                case '0':
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                case '9':
+                    document.getElementById('numeros').value += caracter
+                    break
+
+                default:
+                    document.getElementById('letras').value += caracter
+                break
+
+                
+                
+                
+            }
+        }
+
+    </script>
+</html>
