@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <script>
+            function focusAmarelo(){
+                document.getElementById('campo').className="amarelo"
+            }
+
+            function verificaTamanho(){
+                texto = document.getElementById('campo').value
+                if(texto.length < 3){
+                    document.getElementById('campo').className ="vermelho"
+                }else{
+                    document.getElementById('campo').className="verde"
+                }
+            }
+        </script>
+        <style>
+            body{
+                padding: 2%;
+                background-color: #303135;
+            }
+            .amarelo{
+                background-color: yellow;
+            }
+            .vermelho{
+                background-color: red;
+            }
+            .verde{
+                background-color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <input onfocus="focusAmarelo()" onblur="verificaTamanho()" type = "text" id="campo"/>
+    </body>
+</html>
