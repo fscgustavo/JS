@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <script>
+            let objetos = Array('cadeira','impressora','garfo')
+
+            function adicionaElemento(){
+                texto = document.getElementById('campo').value.toLowerCase()
+                texto = texto.trim()
+                if(texto == ""){
+                    alert('Informe um valor válido.')
+                }else{
+                    if(objetos.indexOf(texto)==-1){
+                        objetos.push(texto)
+                        console.log(objetos)
+                        document.getElementById('campo').value = ""
+                    }else{
+                        alert('Objeto já adicionado.')
+                    }
+                }
+            }
+
+            function ordernaArray(){
+                objetos.sort()
+                console.log(objetos)
+                document.getElementById('campo').value=""
+            }
+
+
+        </script>
+        <style>
+            body{
+                padding: 2%;
+                background-color: #303135;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <input type = "text" id="campo"/>
+        <button onclick="adicionaElemento()">Adicionar </button>
+        <button onclick="ordernaArray()">Ordernar</button>
+    </body>
+</html>
