@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title> BOM </title>
+        <script>
+            
+            function abrirPopUp(){
+                var janela = window.open('','nova_janela', 'width:100, height:100')
+            }
+            function fecharPopUp(){
+                janela.close()
+            }
+
+            let altura = window.screen.availHeight
+            let largura = window.screen.availWidth
+
+            let altura1 = window.screen.height
+            let largura1 = window.screen.width
+
+            document.write(`
+            <br>
+            A altura é de ${altura} px <br>
+            A largura é de ${largura} px
+            <br><br>
+            `)
+
+            document.write(`
+            <br>
+            A altura é de ${altura1} px <br>
+            A largura é de ${largura1} px
+            <br><br>
+            `)
+
+
+        </script>
+    </head>
+    <body style="background-color:#303135; color:white;">
+        <button onclick="abrirPopUp()">Abrir Janela</button>
+        <button onclick="fecharPopUp()">Fechar Janela</button>
+        <button onclick="window.print()">Imprimir</button>
+        <button onclick="window.location.reload()">Atualizar</button>
+    </body>
+</html>
