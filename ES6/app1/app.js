@@ -1,3 +1,5 @@
+
+//localStorage.clear()
 class Despesa {
     constructor(ano,mes,dia,tipo,descricao,valor){
         this.ano = ano
@@ -6,6 +8,15 @@ class Despesa {
         this.tipo = tipo
         this.descricao = descricao
         this.valor = valor
+    }
+    //verifica se algum campo está invalidado
+    validarDados(){
+        for(let i in this){
+            if(this[i] == undefined || this[i] == '' || this[i] == null){
+                return false
+            }
+            return true
+        }
     }
 }
 
@@ -49,8 +60,16 @@ function cadastrarDespesa(){
         descricao.value,
         valor.value
     )
-    console.log(despesa)
-    bd.gravar(despesa)
+    
+    if(despesa.validarDados()){
+        console.log('Dados válidos')
+        bd.gravar(despesa)
+    }else{
+        console.log(despesa)
+        console.log('Dados inválidos')
+    }
+    
+    
 }
 
 
