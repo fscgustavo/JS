@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title> ES6 início </title>
+    <script>
+        
+
+        let produto = {
+            descricao: 'Notebook',
+            preco: 1800,
+            desconto: undefined,
+            detalhes: {
+                fabricante: 'abc',
+                modelo: 'xyz' 
+            }
+        }
+
+        let {descricao: d,preco: p, desconto:de = '5'} = produto
+        console.log(d, p, de)
+
+
+        let {detalhes:{fabricante:f,modelo:m}} = produto
+        console.log(f,m)
+
+
+        let arr = [10,20,30,40]
+        let obj = {
+            a: 10,
+            b: 20,
+            c: 30,
+            d: 40
+        }
+
+        function teste([a,b,,c,d=100]){
+            console.log(a,b,c,d)
+        }
+
+        //pra obj, referencia para a tag, não é um apelido
+        function teste2({a:x,d}){
+            console.log(x,d)
+        }
+
+
+        teste(arr)
+        teste2(obj)
+
+
+        let [a,...x] = arr
+        console.log(a,x)
+
+        let {c, ...z} = obj
+        console.log(a,z)
+    </script>
+    </head>
+    <body style="background-color:#303135; color:white;">
+        <div id="output"></div>
+    </body>
+</html>

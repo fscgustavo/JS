@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title> ES6 início </title>
+    <script>
+        
+
+        let letras = ['a','b','c','d']
+        //opcao de default
+        let [a,b = 'B',c,d,e, f = 'f'] = letras
+
+        console.log(a,b,c,d,e,f)
+
+        let numeros = [[1,2,3,4],[5,6]]
+        let [,[,n]] = numeros
+
+        console.log(n)
+
+
+        
+
+    </script>
+    </head>
+    <body style="background-color:#303135; color:white;">
+        <div id="output"></div>
+    </body>
+</html>
