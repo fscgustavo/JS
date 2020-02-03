@@ -14,8 +14,51 @@
             }
         }
 
+        let nome = 'Gustavo'
+        let idade = '18'
+        let sexo = 'M'
+        let profissao = 'Dev Frontend'
+
+        //simplificação es6
+        //nome = nome da variável
+
+        let objeto = {
+            nome, //nome = nome,
+            idade,
+            sexo,
+            profissao,
+            exibirResumo(){
+                console.log()
+            }
+
+        }
+
 
         produtoLiteral.verDescricao()
+
+        //modificação de valores
+        produtoLiteral.descricao = 'Notebook'
+        produtoLiteral.preco = 4000
+        
+        //novos atributos
+        produtoLiteral.cor = 'Preto e Vermelho'
+        produtoLiteral.start = () => console.log('Hello, World!')
+
+
+        produtoLiteral.verDescricao()
+        produtoLiteral.start()
+
+        //apesar de ser uma var diferente, é uma referência ao 
+        //mesmo obj
+        console.log(produtoLiteral)
+
+        let prod = produtoLiteral
+        prod.descricao = 'Xbox'
+
+        console.log('Separa')
+        console.log(produtoLiteral)
+        console.log(prod)
+
 
     </script>
     </head>
