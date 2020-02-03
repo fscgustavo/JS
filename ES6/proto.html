@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title> ES6 início </title>
+    <script>
+        
+        Object.prototype.attr50 = 'Z'
+
+        let animal ={ attr1: 'a'}
+        let vertebrado = {__proto__: animal, attr2: 'b'}
+        let ave = {__proto__: vertebrado, attr3: 'c'}
+
+        console.log(ave.attr3)
+        console.log(ave.attr2)
+        console.log(ave.attr1)
+
+        console.log(ave.attr50)
+
+    </script>
+    </head>
+    <body style="background-color:#303135; color:white;">
+        <div id="output"></div>
+    </body>
+</html>

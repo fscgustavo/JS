@@ -1,0 +1,35 @@
+\<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title> ES6 início </title>
+    <script>
+        
+        let BicicletaFactory = function(cor, marcha, aro){
+            return{
+                cor,
+                marcha,
+                aro,
+                pedalar(){
+                    console.log('Método pedalar executado')
+                }
+            }
+        }
+
+
+        //grande vantagem: criar novos atributos e não precisar
+        //buscar todas as varíaveis linha a linha para alteração
+        
+        let bicicleta1 = BicicletaFactory('Vermelha',18,26)
+        let bicicleta2 = BicicletaFactory('Preta', 21, 22)
+        
+        console.log(bicicleta1)
+        console.log(bicicleta2)
+
+
+    </script>
+    </head>
+    <body style="background-color:#303135; color:white;">
+        <div id="output"></div>
+    </body>
+</html>
