@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset='utf-8'>
+        
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script type="text/babel">
+            
+            class ContaBancaria {
+ 
+                constructor(){
+                    this.agencia = 1075
+                    this.numeroConta = 835835
+                    this.saldo = 50
+                    this.limite = 450
+                }
+ 
+                depositar(valorDeposito){
+                    this.saldo += valorDeposito
+                }
+ 
+                sacar(valorSaque){
+                    this.saldo -= valorSaque
+                }
+ 
+                consultarSaldo(){
+                    return this.saldo
+                }
+            }
+            
+            let x = new ContaBancaria();
+            let y = new ContaBancaria();
+ 
+            console.log(x.consultarSaldo())
+            x.depositar(450)
+            console.log(x.consultarSaldo())
+            x.sacar(200)
+            console.log(x.consultarSaldo())
+ 
+            console.log(y.consultarSaldo())
+ 
+ 
+            
+        
+        </script>
+ 
+    </head>
+    <body>
+        <div id='output'></div>
+        
+    </body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset='utf-8'>
+        
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script type="text/babel">
+            let quadrado1= function(x=5){
+                return x * x
+            }
+ 
+ 
+            let quadrado2= (x) => {
+                return x*x
+            }
+ 
+            //com 1 parâmetro, pode-se omitir os parênteses
+            //sem lógica pode omitir a instrução 'return' 
+            let quadrado3= x => x*x
+ 
+ 
+ 
+            document.write(quadrado1(3)+'<br>');
+            document.write(quadrado2(3)+'<br>');
+            document.write(quadrado3(3)+'<hr>');
+ 
+           
+            let parOuImpar= numero =>(numero%2===0)? 'par':'impar'
+ 
+            document.write(parOuImpar(5));
+ 
+            let palavra = 'paralelepípedo'
+            let comprimento = p => (p.length > 4)? 'longa':'curta'
+            document.write(`<br> ${comprimento(palavra)}`)
+ 
+ 
+        </script>
+ 
+    </head>
+    <body>
+        <div id='output'></div>
+        
+    </body>
+</html>

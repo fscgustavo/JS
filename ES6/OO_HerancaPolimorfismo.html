@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset='utf-8'>
+        
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script type="text/babel">
+            
+            class Animal{
+                constructor(cor, peso, tamanho){
+                    this.cor = cor
+                    this.peso = peso
+                    this.tamanho = tamanho
+                }
+                
+                dormir(){
+                    console.log('Dormiu')
+                }
+            }
+ 
+            class Cachorro extends Animal{
+                constructor(orelhas, cor, peso, tamanho){
+                    super(cor, peso, tamanho)
+                    this.orelhas = orelhas
+                }
+ 
+                correr(){
+                    console.log('Correu')
+                }
+ 
+                rosnar(){
+                    console.log('Rosnou')
+                }
+            }
+ 
+            class Passaro extends Animal{
+                constructor(bico, cor, peso, tamanho){
+                    super(cor, peso, tamanho)
+                    this.bico = bico
+                }
+ 
+                voar(){
+                    console.log('Voou')
+                }
+            }
+ 
+            class Papagaio extends Passaro{
+                constructor(sabeFalar, bico, cor, peso, tamanho){
+                    super(bico, cor, peso, tamanho)
+                    this.sabeFalar = sabeFalar;
+                }
+            }
+ 
+            class Avestruz extends Passaro{
+                constructor(bico, cor, tamanho, peso){
+                    super(bico, cor,peso,tamanho)
+                }
+ 
+                enterrarCabeca(){
+                    console.log('Enterrou a cabeça')
+                }
+ 
+ 
+                //Pilar do polimorfismo: sobreecreva o método, caso o filho tenha alguma característica diferente
+                voar(){
+                    console.log('Não sabe voar')
+                }
+ 
+            }
+ 
+ 
+            let cachorro = new Cachorro('Grandes','Marrom', 45, 120)
+            let passaro = new Passaro('Redondo', 'Verde', 20, 60)
+            let papagaio = new Papagaio(true, 'Pontudo', 'Vermelho',15, 50)
+            let avestruz = new Avestruz('Redondo', 'Cinza', 300, 200)
+ 
+            cachorro.dormir()
+            passaro.dormir()
+            papagaio.dormir()
+            cachorro.rosnar()
+            console.log(passaro)
+            console.log(cachorro)
+            console.log(papagaio)
+            console.log(avestruz)
+ 
+        </script>
+ 
+    </head>
+    <body>
+        <div id='output'></div>
+        
+    </body>
+</html>
