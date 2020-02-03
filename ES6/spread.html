@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title> ES6 início </title>
+    <script>
+        
+        let tituloArtigo = 'Como utilizar operador rest/spread'
+
+        console.log(tituloArtigo)
+        console.log(...tituloArtigo)
+        console.log([...tituloArtigo])
+
+        let listaCursos1 = [1,2,3]
+        let listaCursos2 = [4,5,6]
+
+        let listaCursosCompleto = [...listaCursos1,'a','b', ...listaCursos2]
+        console.log(listaCursosCompleto)
+
+
+        function multiplicacao(m,...p){
+            console.log(m)
+            let resultado = 0
+            console.log(p)
+
+            p.forEach(v => resultado += m*v)
+
+            return resultado
+        }
+
+        document.write(multiplicacao(5,1,2,3,4))
+
+
+    </script>
+    </head>
+    <body style="background-color:#303135; color:white;">
+        <div id="output"></div>
+    </body>
+</html>
