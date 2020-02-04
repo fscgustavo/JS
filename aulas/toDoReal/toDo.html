@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>To Do</title>
+        <link rel='stylesheet' type='text/css' href='toDo.css'/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <script src="toDo.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class='container'>
+                <span><i class="fas fa-tasks fa-lg"></i></span>
+                <nav>
+                    <ul class="navHeader">
+                        <li><a href="toDo.html"> Inserir </a></li>
+                        <li><a href="tarefas.html"> Tarefas </a></li>
+                        <li><a href="#"> Tarefas Concluídas </a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <article>
+            <section>
+                <div class="container">
+                    <div class="form-item">
+                        <h1>Nova Tarefa</h1>
+                    </div>
+                    <!--<div class="form-item">
+                        <label for="titulo">Tipo </label><br>
+                        <select id="tipo">
+                            <option value="Lazer">Saúde</option>
+                            <option value="Profissioanl">Profissional</option>]
+                            <option value="Familiar">Familiar </option>
+                            <option value="Lazer"> Lazer </option>
+                        </select>
+                    </div>-->
+                    <div class="form-item">
+                        <label for="titulo">Titulo </label><br>
+                        <input type="text" placeholder="Título" id="descricao"/>
+                    </div>
+                    <div class="form-item"> 
+                        <label for="descricao">Descrição </label><br>
+                        <input type="text" placeholder="Descrição" id="descricao"/>
+                    </div>
+                    <div class="form-item">
+                        <label for="titulo"> Data </label><br>
+                        <input type="date" placeholder="Data" id="data"/>
+                    </div>
+                    <div class="form-item">
+                        <label for="titulo">Hora </label><br>
+                        <input type="time" placeholder="Hora" id="hora"/>
+                    </div>
+                    <button onclick="cadastrarTarefa()" class="btnCadastrar">Cadastrar</button>
+                </div>
+            </section>
+
+        </article>
+        <footer>
+
+        </footer>
+    </body>
+</html>
