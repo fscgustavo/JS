@@ -49,7 +49,6 @@ class Bd{
 
         //recuperar todas as despesas cadastradas em localStorage
         for(let i = 1; i <= id; i++){
-            console.log(i, id)
             //recuperar a despesa
             let despesa = JSON.parse(localStorage.getItem(i))
             
@@ -63,6 +62,40 @@ class Bd{
         return despesas
         
     }
+
+    pesquisar(despesa){
+
+        let despesasFiltradas = Array()
+        despesasFiltradas = this.recuperarTodosRegistros()
+        console.log(despesasFiltradas)
+
+        //ano
+        if(despesa.ano != ''){
+            despesasFiltradas = despesasFiltradas.filter(d => d.ano == despesa.ano)
+        }
+
+        //mes
+        if(despesa.mes != ''){
+            despesasFiltradas = despesasFiltradas.filter(d => d.mes == despesa.mes)
+        }
+
+        //dia
+        if(despesa.dia != ''){
+            despesasFiltradas = despesasFiltradas.filter(d => d.dia == despesa.dia)
+        }
+        //tipo
+        if(despesa.tipo != ''){
+            despesasFiltradas = despesasFiltradas.filter(d => d.tipo == despesa.tipo)
+        }
+        //descricao
+        if(despesa.descricao != ''){
+            despesasFiltradas = despesasFiltradas.filter(d => d.descricao == despesa.descricao)
+        }
+
+        return despesasFiltradas
+    }
+
+    
 }
 
 let bd = new Bd()
@@ -94,8 +127,10 @@ function cadastrarDespesa(){
         fdModal(false)
     }
     
-    
 }
+
+
+
 
 function fdModal(feedback){
     if(feedback){
@@ -119,13 +154,20 @@ function fdModal(feedback){
     $("#feedbackGravacao").modal('show')
 }
 
-function carregaListaDespesas(){
+function carregaListaDespesas(despesas = Array(), filtro = false){
 
     let despesas = Array()
-    despesas = bd.recuperarTodosRegistros()
+    
+    
+    if(despesas.length == 0 && filtro == false){
+        despesas = bd.recuperarTodosRegistros()
+    }
 
     //selecionando o elemento tbody da tabela
     var listaDespesas = document.getElementById('listaDespesas')
+
+    //limpa os itens da consulta anterior
+    listaDespesas.innerHTML = ``
 
     //percorrer o array despesas, listando cada
     //despesa de forma dinâmica
@@ -154,6 +196,25 @@ function limpaCampos(){
     valor.value = ""
 }
 
-function pesquisaDespesas(){
+function pesquisarDespesa(){
+    let ano = document.getElementById('ano').value
+    let mes = document.getElementById('mes').value
+    let dia = document.getElementById('dia').value
+    let tipo = document.getElementById('tipo').value
+    let descricao = document.getElementById('descricao').value
+    let valor = document.getElementById('valor').value
+
+    let despesa = new Despesa(
+        ano,
+        mes,
+        dia,
+        tipo,
+        descricao,
+        valor
+    )
+
+    let despesas = bd.pesquisar(despesa)
+
+    carregaListaDespesas(despesas, true)
     
 }
