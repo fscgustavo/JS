@@ -83,11 +83,11 @@
         <div class="col-md-6">
           <select class="form-control" id="tipo">
             <option>Tipo</option>
-            <option value="1">Alimentação</option>
-            <option value="2">Educação</option>
-            <option value="3">Lazer</option>
-            <option value="4">Saúde</option>
-            <option value="5">Transporte</option>
+            <option value="Alimentação">Alimentação</option>
+            <option value="Educação">Educação</option>
+            <option value="Lazer">Lazer</option>
+            <option value="Saúde">Saúde</option>
+            <option value="Transporte">Transporte</option>
           </select>
         </div>
       </div>
@@ -102,7 +102,7 @@
         </div>
 
         <div class="col-md-2 d-flex justify-content-end">
-          <button type="button" class="btn btn-primary">
+          <button onclick="pesquisarDespesa()" type="button" class="btn btn-primary">
             <i class="fas fa-search"></i>
           </button>
         </div>
@@ -120,8 +120,15 @@
                 <th></th>
               </tr>
             </thead>
+            <tbody id="listaDespesas">
 
-            <tbody>
+              <tr>
+                <td>15/03/2018</td>
+                <td>Alimentação</td>
+                <td>Compra do mês</td>
+                <td>444.76</td>
+              </tr>
+
             </tbody>
           </table>
         </div>

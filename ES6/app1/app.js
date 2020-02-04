@@ -15,8 +15,8 @@ class Despesa {
             if(this[i] == undefined || this[i] == '' || this[i] == null){
                 return false
             }
-            return true
         }
+        return true
     }
 }
 
@@ -42,14 +42,14 @@ class Bd{
     }
 
     recuperarTodosRegistros(){
-        let id = localStorage.getItem('id')
+        let id = parseInt(localStorage.getItem('id'))
 
         //array de despesas
         let despesas = Array()
 
         //recuperar todas as despesas cadastradas em localStorage
         for(let i = 1; i <= id; i++){
-
+            console.log(i, id)
             //recuperar a despesa
             let despesa = JSON.parse(localStorage.getItem(i))
             
@@ -58,9 +58,10 @@ class Bd{
                 continue
             }
 
-            despesas.push(despesa)
-
+            despesas.push(despesa)  
         }
+        return despesas
+        
     }
 }
 
@@ -85,8 +86,9 @@ function cadastrarDespesa(){
     
     if(despesa.validarDados()){
         bd.gravar(despesa)
-
         fdModal(true)
+        limpaCampos()
+
     }else{
         //dialog de erro
         fdModal(false)
@@ -100,7 +102,7 @@ function fdModal(feedback){
         document.getElementById('titulo').innerHTML = "Registro inserido com sucesso"
         document.getElementById('titulo').className = "text text-success"
 
-        document.getElementById('descricao').innerHTML = "Despesa foi cadastrada com sucesso!"
+        document.getElementById('descricaoModal').innerHTML = "Despesa foi cadastrada com sucesso!"
         
         document.getElementById('btnModal').className = "btn btn-success"
 
@@ -109,7 +111,7 @@ function fdModal(feedback){
         document.getElementById('titulo').innerHTML = "Erro na gravação"
         document.getElementById('titulo').className = "text text-danger"
 
-        document.getElementById('descricao').innerHTML = "Existem campos obrigatórios que não foram preenchidos"
+        document.getElementById('descricaoModal').innerHTML = "Existem campos obrigatórios que não foram preenchidos"
         
         document.getElementById('btnModal').className = "btn btn-danger"
     }
@@ -118,6 +120,40 @@ function fdModal(feedback){
 }
 
 function carregaListaDespesas(){
-    bd.recuperarTodosRegistros()
+
+    let despesas = Array()
+    despesas = bd.recuperarTodosRegistros()
+
+    //selecionando o elemento tbody da tabela
+    var listaDespesas = document.getElementById('listaDespesas')
+
+    //percorrer o array despesas, listando cada
+    //despesa de forma dinâmica
+
+    despesas.forEach(function(d){
+
+        //criando a linha (tr)
+        let linha = listaDespesas.insertRow()
+
+        //criar as colunas (td)
+        linha.insertCell(0).innerHTML = `${d.dia}/${d.mes}/${d.ano}`
+        linha.insertCell(1).innerHTML = `${d.tipo}`
+        linha.insertCell(2).innerHTML = `${d.descricao}`
+        linha.insertCell(2).innerHTML = `${d.valor}`
+
+    })
 }
 
+
+function limpaCampos(){
+    ano.value = ""
+    mes.value = ""
+    dia.value = ""
+    tipo.value = ""
+    descricao.value = ""
+    valor.value = ""
+}
+
+function pesquisaDespesas(){
+    
+}
