@@ -3,33 +3,41 @@
     <head>
         <title>To Do</title>
         <link rel='stylesheet' type='text/css' href='toDo.css'/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+ 
         <script src="toDo.js"></script>
     </head>
-    <body>
+    <body onload="carregarListaTarefas(true)">
         <header>
             <div class='container'>
                 <span><i class="fas fa-tasks fa-lg"></i></span>
                 <nav>
                     <ul class="navHeader">
                         <li><a href="toDo.html"> Home </a></li>
-                        <li><a href="tarefas.html"> Done </a></li>
+                        <li><a href="tarefas.html"> Concluídas </a></li>
                     </ul>
                 </nav>
             </div>
         </header>
         <article>
             <section>
-                <div class="container">
-                    : Updates were rejected because the tip of your current branch is behind
+                <article class="listaTarefas">
+                    
+                    <div class="container" id="listaTarefas">
+                        <div class="task-item">
+                            <h1>Tarefas Concluídas </h1>
+                        </div>
+                        
+                    </div>
+                </article>
+            
                     
                 </div>
             </section>
-
+ 
         </article>
         <footer>
-
+ 
         </footer>
     </body>
 </html>

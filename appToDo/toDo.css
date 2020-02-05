@@ -105,13 +105,15 @@ a.linkCancelar:hover{
     cursor: pointer;
 }
 
-article.listaTarefas{
-    margin-top: 20px;
+article.insercao{
+    margin-bottom: 20px;
 }
 
 div.task-title{
     padding: 15px;
 }
+
+
 
 div.task-item{
     padding: 15px 20px;
@@ -119,18 +121,25 @@ div.task-item{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 
-a.btnDone, a.btnDelete{
-
-}
 
 a.btnDone:hover, a.btnDelete:hover{
     cursor: pointer;
 }
 
+span.spanTitulo{
+    border: 1px solid red;
+    line-height: 24px;
+    width: 50%;
+    
+}
+
+span.spanBtn a{
+    padding-left: 20px;
+}
 span.spanBtn img{
     width: 20px;
     height: 20px;
-    margin-left: 5px;
 }

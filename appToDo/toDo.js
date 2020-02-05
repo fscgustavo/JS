@@ -62,6 +62,11 @@ class Bd{
 
         return tarefas
     }
+
+
+    deletar(id){
+        localStorage.removeItem(id)
+    }
 }
 
 let bd = new Bd();
@@ -76,14 +81,13 @@ function cadastrarTarefa(){
     console.log(tarefa.validarDados())
     if(tarefa.validarDados()){
         bd.gravar(tarefa)
-        //modal
-        limpaCampos()
+        window.location.reload()
     }else{
-        //modal
+        alert('Dados inválidos.')
     }
 }
 
-function carregarListaTarefas(tarefas = Array(), concluida = false){
+function carregarListaTarefas(concluida = false){
 
     //recupera tarefas e vê se elas estão concluídas
     tarefas = bd.recuperarTodosOsRegistros()
@@ -103,41 +107,42 @@ function carregarListaTarefas(tarefas = Array(), concluida = false){
         let divTI = document.createElement('div')
         divTI.className = 'task-item'
         divTI.innerHTML = `
-        <span>${t.tituloTarefa}</span>
+        <span class="spanTitulo">${t.tituloTarefa}</span>
         <span> ${t.dataTarefa} </span>
         `
+        if(!concluida){
+            //correct button
+            let a1 = document.createElement('a')
+            a1.className = 'btnDone'
+            a1.innerHTML = '<img src="correctIcon.png"/>'
+            a1.id = `correct_${t.id}`
+            a1.onclick = function(){
+                let id = this.id.replace('correct_','')
+                let tarefa = JSON.parse(localStorage.getItem(id))
+                tarefa.feita = true
+                localStorage.setItem(id,JSON.stringify(tarefa))
+                window.location.reload()
+                
+            }
 
-        //correct button
-        let a1 = document.createElement('a')
-        a1.className = 'btnDone'
-        a1.innerHTML = '<img src="correctIcon.png"/>'
-        a1.id = `correct_${t.id}`
-        a1.onclick = function(){
-            let id = this.id.replace('correct_','')
-            let tarefa = JSON.parse(localStorage.getItem(id))
-            tarefa.feita = true
-            localStorage.setItem(id,JSON.stringify(tarefa))
+            //delete button
+            let a2 = document.createElement('a')
+            a2.className = 'btnDelete'
+            a2.innerHTML = '<img src="wrongIcon.png"/>'
+            a2.id = `wrong_${t.id}`
+            a2.onclick = function(){
+                let id = this.id.replace('wrong_','')
+                bd.deletar(id)
+                window.location.reload()
+            }
             
-            console.log(tarefa.feita)
-        }
+            let span = document.createElement('span')
+            span.className= "spanBtn"
+            span.appendChild(a1)
+            span.appendChild(a2)
 
-        //delete button
-        let a2 = document.createElement('a')
-        a2.className = 'btnDelete'
-        a2.innerHTML = '<img src="wrongIcon.png"/>'
-        a2.id = `wrong_${t.id}`
-        a2.onclick = function(){
-            let id = this.id.replace('wrong_','')
-            //bd.deletar(t)
-            //window.location.reload()
+            divTI.appendChild(span)
         }
-        
-        let span = document.createElement('span')
-        span.className= "spanBtn"
-        span.appendChild(a1)
-        span.appendChild(a2)
-
-        divTI.appendChild(span)
         divLT.appendChild(divTI)
 
         listaTarefas.appendChild(divLT)
