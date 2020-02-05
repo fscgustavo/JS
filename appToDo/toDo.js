@@ -1,15 +1,21 @@
 
 
 class Tarefa{
-    constructor(tituloTarefa, dataTarefa){
+    constructor(tituloTarefa, dataTarefa, feita){
         this.tituloTarefa = tituloTarefa
         this.dataTarefa = dataTarefa
-        this.feita = false
+        this.feita = feita
     }
 
     validarDados(){
         for(let i in this){
+
+            //se verifica o "feita", sempre dará false
+            if(i == 'feita'){
+                continue
+            }
             if(this[i]=='' || this[i] == undefined || this[i] == null){
+                console.log(i)
                 return false
             }
         }
@@ -65,7 +71,7 @@ function cadastrarTarefa(){
     let dataTarefa = document.getElementById('dataTarefa').value
 
 
-    let tarefa = new Tarefa(tituloTarefa, dataTarefa)
+    let tarefa = new Tarefa(tituloTarefa, dataTarefa, false)
 
     console.log(tarefa.validarDados())
     if(tarefa.validarDados()){
@@ -79,9 +85,9 @@ function cadastrarTarefa(){
 
 function carregarListaTarefas(tarefas = Array(), concluida = false){
 
-    if(tarefas.length == 0){
-        tarefas = bd.recuperarTodosOsRegistros()
-    }
+    //recupera tarefas e vê se elas estão concluídas
+    tarefas = bd.recuperarTodosOsRegistros()
+    tarefas = tarefas.filter(t => t.feita == concluida)
 
     listaTarefas = document.getElementById('listaTarefas')
 
@@ -89,9 +95,17 @@ function carregarListaTarefas(tarefas = Array(), concluida = false){
 
     tarefas.forEach(t => {
         
-        //criação da div
-        let div = document.createElement('div')
-        div.className = 'task-organizer'
+        //div listaTarefas
+        let divLT = document.createElement('div')
+        divLT.className = 'task-organizer'
+
+        //div listaTarefas
+        let divTI = document.createElement('div')
+        divTI.className = 'task-item'
+        divTI.innerHTML = `
+        <span>${t.tituloTarefa}</span>
+        <span> ${t.dataTarefa} </span>
+        `
 
         //correct button
         let a1 = document.createElement('a')
@@ -100,8 +114,11 @@ function carregarListaTarefas(tarefas = Array(), concluida = false){
         a1.id = `correct_${t.id}`
         a1.onclick = function(){
             let id = this.id.replace('correct_','')
-            let tarefa = localStorage.getItem(id)
+            let tarefa = JSON.parse(localStorage.getItem(id))
             tarefa.feita = true
+            localStorage.setItem(id,JSON.stringify(tarefa))
+            
+            console.log(tarefa.feita)
         }
 
         //delete button
@@ -115,19 +132,15 @@ function carregarListaTarefas(tarefas = Array(), concluida = false){
             //window.location.reload()
         }
         
+        let span = document.createElement('span')
+        span.className= "spanBtn"
+        span.appendChild(a1)
+        span.appendChild(a2)
 
-        div.innerHTML = `
-        <div class="task-item">
-            <span>${t.tituloTarefa}</span>
-            <span> ${t.dataTarefa} </span>
-            <span class="spanBtn">
-                ${a1}
-                ${a2}
-            </span>
-        </div>
-        `
-        
-        listaTarefas.appendChild(div)
+        divTI.appendChild(span)
+        divLT.appendChild(divTI)
+
+        listaTarefas.appendChild(divLT)
     })
 
 }
