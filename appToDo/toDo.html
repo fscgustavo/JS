@@ -7,7 +7,7 @@
  
         <script src="toDo.js"></script>
     </head>
-    <body>
+    <body onload="carregarListaTarefas()">
         <header>
             <div class='container'>
                 <span><i class="fas fa-tasks fa-lg"></i></span>
@@ -39,7 +39,7 @@
                         <div class="form-item"> 
                             <h3>Inbox</h3>
                             <input type="text" placeholder="Tarefa" id="tarefa"/>
-                            <input type="date"/>
+                            <input type="date" id="dataTarefa"/>
                         </div>
                         <div class="form-item">
                             <button onclick="cadastrarTarefa()" class="btnCadastrar">Cadastrar</button>
@@ -51,7 +51,7 @@
                 </article>
                 <article class="listaTarefas">
                     
-                    <div class="container">
+                    <div class="container" id="listaTarefas">
                         <div class="task-item">
                             <h1>Tarefas</h1>
                         </div>
