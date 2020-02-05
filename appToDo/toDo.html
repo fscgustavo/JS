@@ -1,9 +1,9 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <title>To Do</title>
         <link rel='stylesheet' type='text/css' href='toDo.css'/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
  
         <script src="toDo.js"></script>
     </head>
@@ -13,39 +13,72 @@
                 <span><i class="fas fa-tasks fa-lg"></i></span>
                 <nav>
                     <ul class="navHeader">
-                        <li><a href="toDo.html"> Inserir </a></li>
-                        <li><a href="tarefas.html"> Tarefas </a></li>
-                        <li><a href="#"> Tarefas Concluídas </a></li>
+                        <li><a href="toDo.html"> Home </a></li>
+                        <li><a href="tarefas.html"> Done </a></li>
                     </ul>
                 </nav>
             </div>
         </header>
         <article>
             <section>
-                <div class="container">
-                    <div class="form-item">
-                        <h1>Nova Tarefa</h1>
-                    </div>
-                    <!--<div class="form-item">
-                        <label for="titulo">Tipo </label><br>
-                        <select id="tipo">
-                            <option value="Lazer">Saúde</option>
-                            <option value="Profissioanl">Profissional</option>]
-                            <option value="Familiar">Familiar </option>
-                            <option value="Lazer"> Lazer </option>
-                        </select>
-                    </div>-->
-                    <div class="form-item">
+                <article>
+                    <div class="container">
+                        <div class="form-item">
+                            <h1>New Task</h1>
+                        </div>
+                        <!--<div class="form-item">
+                            <label for="titulo">Tipo </label><br>
+                            <select id="tipo">
+                                <option value="Lazer">Saúde</option>
+                                <option value="Profissioanl">Profissional</option>]
+                                <option value="Familiar">Familiar </option>
+                                <option value="Lazer"> Lazer </option>
+                            </select>
+                        </div>-->
+                        
+                        <div class="form-item"> 
+                            <h3>Inbox</h3>
+                            <input type="text" placeholder="Tarefa" id="tarefa"/>
+                            <input type="date"/>
+                        </div>
+                        <div class="form-item">
+                            <button onclick="cadastrarTarefa()" class="btnCadastrar">Cadastrar</button>
+                            <a class="linkCancelar">Cancelar</a>
+                        </div>
+                
                         
                     </div>
-                    <div class="form-item"> 
-                        <h3>Inbox</h3>
-                        <input type="text" placeholder="Tarefa" id="tarefa"/>
-                        <input type="date"/>
-                    </div>
+                </article>
+                <article class="listaTarefas">
                     
+                    <div class="container">
+                        <div class="task-item">
+                            <h3>Tarefas</h3>
+                        </div>
+                        <div class="task-organizer">
+                            <div class="task-item">
+                                <span>Arrumar a mochila</span>
+                                <span> 20/01/2020 </span>
+                                <span class="spanBtn">
+                                    <a class="btnDone" onclick="concluirTarefa()"><img src="correctIcon.png"/></a>
+                                    <a class="btnDelete" onclick="deletarTarefa()"><img src="wrongIcon.png"/></a>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="task-organizer">
+                            <div class="task-item">
+                                <span>Arrumar a mochila</span>
+                                <span> 20/01/2020 </span>
+                                <span class="spanBtn">
+                                    <a class="btnDone" onclick="concluirTarefa()"><img src="correctIcon.png"/></a>
+                                    <a class="btnDelete" onclick="deletarTarefa()"><img src="wrongIcon.png"/></a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
             
-                    <button onclick="cadastrarTarefa()" class="btnCadastrar">Cadastrar</button>
+                    
                 </div>
             </section>
  
