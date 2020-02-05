@@ -99,6 +99,9 @@ function carregarListaTarefas(concluida = false){
 
     tarefas.forEach(t => {
         
+        let span = document.createElement('span')
+        span.className= "spanBtn"
+        
         //div listaTarefas
         let divLT = document.createElement('div')
         divLT.className = 'task-organizer'
@@ -124,25 +127,25 @@ function carregarListaTarefas(concluida = false){
                 window.location.reload()
                 
             }
-
-            //delete button
-            let a2 = document.createElement('a')
-            a2.className = 'btnDelete'
-            a2.innerHTML = '<img src="wrongIcon.png"/>'
-            a2.id = `wrong_${t.id}`
-            a2.onclick = function(){
-                let id = this.id.replace('wrong_','')
-                bd.deletar(id)
-                window.location.reload()
-            }
-            
-            let span = document.createElement('span')
-            span.className= "spanBtn"
             span.appendChild(a1)
-            span.appendChild(a2)
-
-            divTI.appendChild(span)
         }
+        //delete button
+        let a2 = document.createElement('a')
+        a2.className = 'btnDelete'
+        a2.innerHTML = '<img src="wrongIcon.png"/>'
+        a2.id = `wrong_${t.id}`
+        a2.onclick = function(){
+            let id = this.id.replace('wrong_','')
+            bd.deletar(id)
+            window.location.reload()
+        }
+        
+        
+        
+        span.appendChild(a2)
+
+        divTI.appendChild(span)
+        
         divLT.appendChild(divTI)
 
         listaTarefas.appendChild(divLT)

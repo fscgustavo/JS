@@ -8,6 +8,11 @@ body{
     color: white;
     font-family: Verdana, Arial, sans-serif;
 }
+
+img{
+    width: 40px;
+    height: 40px;
+}
  
 header a{
     text-decoration: none;
@@ -15,7 +20,7 @@ header a{
 }
  
 input[type=text], input[type=date]{
-    width: 50%;
+    width: 60%;
     padding: 12px 20px;
     margin: 8px 0;
     border: none;
@@ -23,15 +28,20 @@ input[type=text], input[type=date]{
     border-radius: 4px;
     font-size: 14px;
 }
- 
+
 input[type=date]{
     width: 20%;
+}
+ 
+input[type=date]{
+    width: 30%;
     padding: 10px 20px;
 }
  
  
 div.container{
-    max-width: 1100px;
+    max-width: 900px;
+    padding: 0 30px;
     margin: 0 auto;
 }
  
@@ -59,7 +69,7 @@ ul.navHeader li{
 }
  
 section{
-    border: 1px solid red;
+    
     font-size: 14px;
     padding: 20px 30px;
 }
@@ -130,7 +140,6 @@ a.btnDone:hover, a.btnDelete:hover{
 }
 
 span.spanTitulo{
-    border: 1px solid red;
     line-height: 24px;
     width: 50%;
     
