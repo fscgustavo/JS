@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>jQuery</title>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    </head>
+    <body>
+
+        <h1>Selecionando elementos pt 1</h1>
+
+        <div id="div1">Div 1</div>
+        <div class="diversos1">Div 2</div>
+
+
+        <ul id="menu1">
+            <li>Menu 1 - item 1</li>
+            <li>Menu 1 - item 2</li>
+            <li>Menu 1 - item 3</li>
+        </ul>
+
+        <ul>
+            <li>Menu 2 - item 1</li>
+            <li>Menu 2 - item 2</li>
+            <li>Menu 2 - item 3</li>
+        </ul>
+
+
+        <input type="text" placeholder="campo 1"/>
+
+        <select class="diversos1">
+            <option value="">-- selecione uma opção --</option>
+            <option value="">1</option>
+            <option value="">2</option>
+        </select>
+
+        <img src="tanjiro.png"/>
+    </body>
+    <script>
+        console.log('selecionando tags')
+        console.log($('h1'))
+        console.log($('div'))
+        console.log('selecionando classes')
+        console.log($('.diversos1'))
+        console.log('selecionando id')
+        console.log($('#menu1'))
+
+
+        //$('div.exemplo1')
+       // $('.lista1 .exemplo2')
+       // $('.lista1 .exemplo2:first')
+       // $('.lista1 .exemplo2:last')
+       // $('.lista1 .exemplo2:even')
+       // $('.lista1 .exemplo2:odd')
+    </script>
+</html>
